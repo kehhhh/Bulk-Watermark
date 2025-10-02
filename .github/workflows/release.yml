@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+          - os: macos-latest
+            target: x86_64-apple-darwin
+          - os: macos-latest
+            target: aarch64-apple-darwin
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+
+    runs-on: ${{ matrix.platform.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform.target }}
+
+      - name: Install dependencies (Ubuntu)
+        if: matrix.platform.os == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Install frontend dependencies
+        run: npm install
+
+      - name: Download FFmpeg binary
+        run: npm run prepare:ffmpeg
+
+      - name: Build and Release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: 'Bulk Watermark v__VERSION__'
+          releaseBody: |
+            ## What's New in this Release
+            
+            See the assets below to download and install this version.
+            
+            ### Installation Files
+            - **Windows (.msi)**: Traditional Windows installer (recommended)
+            - **Windows (.exe)**: NSIS installer (alternative)
+            - **macOS (.dmg)**: Disk image for macOS
+            - **Linux (.deb)**: Debian/Ubuntu package
+            - **Linux (.AppImage)**: Universal Linux application
+            
+            ### Auto-Updates ✨
+            If you have a previous version installed, the app will automatically check for updates and notify you!
+            
+            ### Changelog
+            ${{ github.event.head_commit.message }}
+          releaseDraft: true
+          prerelease: false
+          args: --target ${{ matrix.platform.target }}

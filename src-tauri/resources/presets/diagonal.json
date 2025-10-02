@@ -1,0 +1,14 @@
+{
+  "name": "Diagonal",
+  "description": "Large centered watermark for maximum protection (best for preventing unauthorized use)",
+  "config": {
+    "watermarkType": "text",
+    "text": "PREVIEW - NOT FOR DISTRIBUTION",
+    "imagePath": null,
+    "position": "center",
+    "opacity": 50,
+    "textColor": "#ff0000",
+    "fontSize": 64,
+    "fontFamily": "Impact"
+  }
+}

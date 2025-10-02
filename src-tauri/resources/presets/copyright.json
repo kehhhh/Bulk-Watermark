@@ -1,0 +1,14 @@
+{
+  "name": "Copyright Notice",
+  "description": "Clear copyright statement for legal protection and attribution",
+  "config": {
+    "watermarkType": "text",
+    "text": "© 2025 All Rights Reserved",
+    "imagePath": null,
+    "position": "bottom-center",
+    "opacity": 75,
+    "textColor": "#000000",
+    "fontSize": 28,
+    "fontFamily": "Arial"
+  }
+}

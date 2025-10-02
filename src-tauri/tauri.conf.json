@@ -1,0 +1,104 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Bulk Watermark Adder",
+  "version": "0.1.0",
+  "identifier": "com.bulkwatermark.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Bulk Watermark Adder",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "nsis"],
+    "externalBin": [
+      "binaries/ffmpeg"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "publisher": "vansh",
+    "copyright": "Copyright © 2025 vansh. All rights reserved.",
+    "category": "Utility",
+    "shortDescription": "Bulk watermark images and videos",
+    "longDescription": "A modern desktop application for adding text or image watermarks to multiple images and videos at once. Powered by FFmpeg for high-quality processing.",
+    "resources": ["resources/**/*"],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "",
+      "wix": {
+        "language": "en-US",
+        "template": null,
+        "fragmentPaths": [],
+        "componentRefs": [],
+        "featureGroupRefs": [],
+        "featureRefs": [],
+        "mergeRefs": [],
+        "enableElevatedUpdateTask": false,
+        "bannerPath": null,
+        "dialogImagePath": null
+      },
+      "nsis": {
+        "headerImage": null,
+        "sidebarImage": null,
+        "installerIcon": null,
+        "installMode": "currentUser",
+        "languages": ["English"],
+        "displayLanguageSelector": false,
+        "compression": "lzma"
+      }
+    },
+    "macOS": {
+      "frameworks": [],
+      "minimumSystemVersion": "10.13",
+      "exceptionDomain": "",
+      "signingIdentity": null,
+      "providerShortName": null,
+      "entitlements": null
+    },
+    "linux": {
+      "deb": {
+        "depends": []
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/latest/download/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDUyMEU2NjdEODVCOEVCOTQKUldTVTY3aUZmV1lPVXF2SENEZ0lLc3VaT3pzOFgxMEU4aDNDdWMxOG8ySlRzUDU5TzY5a25jd3QK"
+    }
+  }
+}

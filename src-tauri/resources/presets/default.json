@@ -1,0 +1,14 @@
+{
+  "name": "Default",
+  "description": "Simple white text watermark in the bottom-right corner",
+  "config": {
+    "watermarkType": "text",
+    "text": "Watermark",
+    "imagePath": null,
+    "position": "bottom-right",
+    "opacity": 80,
+    "textColor": "#ffffff",
+    "fontSize": 48,
+    "fontFamily": "Arial"
+  }
+}

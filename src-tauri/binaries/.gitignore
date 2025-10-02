@@ -1,0 +1,6 @@
+# Exclude FFmpeg binaries from version control
+ffmpeg-*
+
+# Keep documentation
+!README.md
+!.gitignore

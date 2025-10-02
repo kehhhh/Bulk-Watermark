@@ -1,0 +1,105 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Konva Stage Styling */
+.konva-stage-container {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--mantine-color-gray-3);
+  border-radius: var(--mantine-radius-md);
+  box-shadow: var(--mantine-shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.konva-stage-container:hover {
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.konva-stage-container canvas {
+  display: block;
+}
+
+/* Custom Utility Classes */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mantine-shadow-lg);
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--mantine-color-blue-6), var(--mantine-color-cyan-6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Transition Utilities */
+.transition-all {
+  transition: all 0.2s ease;
+}
+
+.transition-transform {
+  transition: transform 0.2s ease;
+}
+
+.transition-opacity {
+  transition: opacity 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mantine-color-gray-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-gray-4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mantine-color-gray-5);
+}
+
+/* Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--mantine-color-blue-6);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

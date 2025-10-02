@@ -1,0 +1,14 @@
+{
+  "name": "Photography",
+  "description": "Elegant watermark for professional photography with subtle branding",
+  "config": {
+    "watermarkType": "text",
+    "text": "© Your Name Photography",
+    "imagePath": null,
+    "position": "bottom-right",
+    "opacity": 70,
+    "textColor": "#ffffff",
+    "fontSize": 32,
+    "fontFamily": "Georgia"
+  }
+}

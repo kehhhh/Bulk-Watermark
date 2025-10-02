@@ -1,0 +1,14 @@
+{
+  "name": "Professional",
+  "description": "Subtle gray text in the bottom-left corner, ideal for professional photos",
+  "config": {
+    "watermarkType": "text",
+    "text": "© 2025 Your Company",
+    "imagePath": null,
+    "position": "bottom-left",
+    "opacity": 60,
+    "textColor": "#cccccc",
+    "fontSize": 36,
+    "fontFamily": "Arial"
+  }
+}

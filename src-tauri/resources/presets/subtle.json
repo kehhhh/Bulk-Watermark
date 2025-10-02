@@ -1,0 +1,14 @@
+{
+  "name": "Subtle",
+  "description": "Small, semi-transparent text in the top-right corner",
+  "config": {
+    "watermarkType": "text",
+    "text": "Sample",
+    "imagePath": null,
+    "position": "top-right",
+    "opacity": 40,
+    "textColor": "#ffffff",
+    "fontSize": 24,
+    "fontFamily": "Arial"
+  }
+}

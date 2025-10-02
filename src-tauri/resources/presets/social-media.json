@@ -1,0 +1,14 @@
+{
+  "name": "Social Media",
+  "description": "Eye-catching watermark perfect for Instagram, TikTok, and other social platforms",
+  "config": {
+    "watermarkType": "text",
+    "text": "@YourHandle",
+    "imagePath": null,
+    "position": "top-left",
+    "opacity": 85,
+    "textColor": "#ffffff",
+    "fontSize": 40,
+    "fontFamily": "Impact"
+  }
+}

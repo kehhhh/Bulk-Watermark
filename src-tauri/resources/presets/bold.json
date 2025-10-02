@@ -1,0 +1,14 @@
+{
+  "name": "Bold",
+  "description": "Large, high-contrast text centered on the image",
+  "config": {
+    "watermarkType": "text",
+    "text": "CONFIDENTIAL",
+    "imagePath": null,
+    "position": "center",
+    "opacity": 90,
+    "textColor": "#ff0000",
+    "fontSize": 72,
+    "fontFamily": "Impact"
+  }
+}
